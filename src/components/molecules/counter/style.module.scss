@@ -1,0 +1,35 @@
+@import "../../../scss/utils/variables";
+@import "../../../scss/utils/mixins";
+
+//Counter
+.counter{
+  margin-top: calc(var(--subline) * 3);
+  &__button{
+    @include reset-button();
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    width: calc(var(--subline) * 8);
+    height: calc(var(--subline) * 8);
+    background-color: $color-A8-a;
+    border-radius: calc(var(--subline) - 1px);
+    transition: opacity 0.3s $time-cubic-bezier;
+
+    @media (hover: hover) {
+      &:hover{
+        opacity: 0.8;
+      }
+    }
+  }
+  &>span {
+    display: inline-grid;
+    align-items: center;
+    justify-content: center;
+    color: $color-A1-a;
+    font-size: var(--font-size-1);
+    width: calc(var(--subline) * 8);
+    height: calc(var(--subline) * 8);
+
+  }
+}
+

@@ -1,0 +1,69 @@
+@import "../../../scss/utils/variables";
+@import "../../../scss/utils/mixins";
+
+.button {
+  @include reset-button();
+  @include text-style-t3();
+  padding: calc(var(--subline) * 2) calc(var(--subline) * 3);
+  border-radius: var(--border-radius);
+  background: var(--color-G1);
+  opacity: 1;
+  transition: opacity 0.3s $time-cubic-bezier;
+
+  @media (hover: hover) {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  //Button_remove start
+  &_remove{
+    @include reset-button();
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    color: $color-D4;
+    font-size: $font-size-1;
+    font-weight: 700;
+    opacity: 1;
+    transition: color 0.3s $time-cubic-bezier;
+    padding-right: calc(var(--subline) * 3);
+
+    &>span{
+      display: inline-grid;
+      width: calc(var(--baseline) - 1px);
+      height: calc(var(--baseline) - 1px);
+      margin-right: calc(var(--subline) * 2);
+      align-items: center;
+      justify-content: center;
+
+      & path{
+        fill:$color-D4;
+        transition: fill 0.3s $time-cubic-bezier;
+      }
+    }
+
+    &:active{
+      color: $color-D5;
+      &>span path{
+        fill:$color-D5;
+      }
+    }
+    &:disabled{
+      color: $color-D4-tint-a;
+      &>span path{
+        fill:$color-D4-tint-a;
+      }
+    }
+    @media (hover: hover) {
+      &:hover{
+        color: $color-D3;
+        &>span path{
+          fill:$color-D3;
+        }
+      }
+    }
+  }
+
+
+}
